@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王毓延 - 个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft Yahei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        /* 头部信息样式 */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+            border: 3px solid #f0f2f5;
+        }
+
+        .basic-info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 核心优势样式 */
+        .core-advantages {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background-color: #2e86de;
+            border-radius: 2px;
+        }
+
+        .advantage-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        /* 工作经历样式 */
+        .work-experience {
+            margin-bottom: 40px;
+        }
+
+        .experience-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-left: 4px solid #2e86de;
+        }
+
+        .experience-header {
+            padding: 18px 20px;
+            background-color: #eef5ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-name {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        .position-time {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .toggle-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #2e86de;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-btn.rotated {
+            transform: rotate(45deg);
+        }
+
+        .experience-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+
+        .experience-content.show {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        .content-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .content-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .achievements {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        /* 教育经历样式 */
+        .education {
+            margin-bottom: 20px;
+        }
+
+        .education-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .school-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .school-name {
+            font-size: 16px;
+        }
+
+        .education-time {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .major {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .campus-experience {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .resume-container {
+                padding: 20px;
+            }
+
+            .school-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <img src="wangyuyan.jpg" alt="王毓延" class="avatar">
+            <div class="basic-info">
+                <h1>王毓延</h1>
+                <div class="contact-info">
+                    <div>📅 出生年月：1998.10</div>
+                    <div>📍 所在城市：北京市</div>
+                </div>
+                <div class="contact-info">
+                    <div>📞 电话：13136941091（微信同号）</div>
+                    <div>✉️ 邮箱：1308831864@qq.com</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心优势 -->
+        <div class="core-advantages">
+            <h2 class="section-title">核心优势</h2>
+            <div class="advantage-item">
+                <strong>1、专业技能：</strong>考取计算机二级证书、暖通CAD工程师证，熟练使用office、Xmind、ps等办公软件，善于运用函数、透视功能处理表格及利用AI工具增加工作效率，会生成专属Agent工具。
+            </div>
+            <div class="advantage-item">
+                <strong>2、核心能力：</strong>4年采销、供应链招商经验，有经营思维。熟悉采购全流程，熟悉B2B、B2C、O2O销售模式。熟练使用ERP、CRM、京东商智、VC等SAAS系统，懂阿米巴经营模式，可独立对项目经营结果分析。
+            </div>
+        </div>
+
+        <!-- 工作经历 -->
+        <div class="work-experience">
+            <h2 class="section-title">工作经历</h2>
+
+            <!-- 居然之家 -->
+            <div class="experience-item">
+                <div class="experience-header" onclick="toggleExperience(this)">
+                    <div class="company-info">
+                        <div class="company-name">居然之家</div>
+                        <div class="position-time">供应链招商 | 2024.09 - 至今</div>
+                    </div>
+                    <div class="toggle-btn">+</div>
+                </div>
+                <div class="experience-content">
+                    <div class="content-item">1、门店品牌招商管理：监督并协助北京门店做好招商工作，包含资源衔接，招商帮扶，合同审批等。</div>
+                    <div class="content-item">2、董事长直播支持：对接品牌方，邀请嘉宾参加“老汪不躺平”直播，梳理直播所需各类资料（选品、价格体系、脚本、样品、KT板等），内外部团队协调并跟进，保障直播按时、高质量完成。</div>
+                    <div class="content-item">3、居然设计家供应链招商：0-1搭建模型供应链，负责软床、沙发品类品牌方对接，宣讲我司产品及合作规划，收集商品3D模型。</div>
+                    <div class="content-item">4、3D智能导购门店落地培训：对接全国居然门店导购，宣讲培训我司产品，跟踪导购反馈及激活使用。</div>
+                    <div class="content-item achievements">5、主要业绩：直播负责品牌0事故，对接软体品类品牌18家（品类头部企业100%覆盖），收集模型5000+，达成季度目标120%；落地培训3D智能导购软件，187家门店，2000+个摊位，导购激活率92%</div>
+                </div>
+            </div>
+
+            <!-- 中粮福临门 -->
+            <div class="experience-item">
+                <div class="experience-header" onclick="toggleExperience(this)">
+                    <div class="company-info">
+                        <div class="company-name">中粮福临门</div>
+                        <div class="position-time">电商运营（京东·米面） | 2024.03-2024.08</div>
+                    </div>
+                    <div class="toggle-btn">+</div>
+                </div>
+                <div class="experience-content">
+                    <div class="content-item">1、竞品价格监控：大促及bigday节点洞察竞品对产品价格趋势，及时对接采购调整我司对标产品价格，做到人有我优。</div>
+                    <div class="content-item">2、进销存管理：关注库存周转，监控产品滞销、长库龄、偏仓问题，及时调整营销策略，主导处理滞销长库龄合同调拨1次，涉及12个京东仓，600吨产品，规避退货产生损失。</div>
+                </div>
+            </div>
+
+            <!-- 酒仙网 -->
+            <div class="experience-item">
+                <div class="experience-header" onclick="toggleExperience(this)">
+                    <div class="company-info">
+                        <div class="company-name">酒仙网</div>
+                        <div class="position-time">采购经理 | 2023.07-2024.02</div>
+                    </div>
+                    <div class="toggle-btn">+</div>
+                </div>
+                <div class="experience-content">
+                    <div class="content-item">1、项目经营管理：负责西凤酒、红星、丰谷OEM产品以及清仓产品的经营管理，根据商品进销存情况制定执行采购计划（周转控制在30-60天）。</div>
+                    <div class="content-item">2、整合营销：根据产品特性，制定产品活动政策，对接内部各个销售端口，上架前端销售，提升项目GMV（项目月销售150万+）。</div>
+                    <div class="content-item">3、供应商管理：对接6家供应商，洽谈新品上新及老品汰换，丰富品类sku，洽谈费用及0元品洽谈降低采购成本，提升我司毛利。</div>
+                    <div class="content-item">4、商品管理：洞察市场趋势，挖掘核心产品及爆品。掌握库存情况，加快库存周转，处理滞销、长库龄产品，保证畅销品现货率。</div>
+                    <div class="content-item">5、供应商资质管理：负责供应商合同起草、审核和签订，对接保证其提供资质齐全有效，有据可查。</div>
+                    <div class="content-item achievements">6、主要业绩：在职期间新增sku12个，拉动GMV增长360万+，毛利32%，打造爆品sku两个，月销54万+，洽谈供应商支持小酒500瓶，新增供应商1家谈成60天账期结算实销实结，为公司资金周转做出贡献</div>
+                </div>
+            </div>
+
+            <!-- 正大食品 -->
+            <div class="experience-item">
+                <div class="experience-header" onclick="toggleExperience(this)">
+                    <div class="company-info">
+                        <div class="company-name">正大食品</div>
+                        <div class="position-time">电商运营 | 2022.10-2023.07</div>
+                    </div>
+                    <div class="toggle-btn">+</div>
+                </div>
+                <div class="experience-content">
+                    <div class="content-item">1、渠道对接：负责冷冻米面及禽肉调理品类，对接盒马、7鲜平台采销，协调并整合内部产品快速满足渠道需求，保证渠道销售稳定增长；规划我司费用投入并策划活动洽谈争取平台资源，增加产品曝光提升品牌销量及影响力。</div>
+                    <div class="content-item">2、供应链管理：对未来销售做出预判，制定合理的备货计划，控制排产节奏、留有一定安全库存，提升供货履约率，控制大龄库存产生的成本和风险。</div>
+                    <div class="content-item">3、经营分析：以每场活动、每月为维度进行分析，复盘问题及投入产出比，从中发现问题，改进问题，完善不足之处。</div>
+                    <div class="content-item achievements">4、主要业绩：23年第一季度GMV1161万同比增长21%，综合毛利率32%，送货履约率提升7%，规避10万+履约罚款损失。</div>
+                </div>
+            </div>
+
+            <!-- 苏宁易购 -->
+            <div class="experience-item">
+                <div class="experience-header" onclick="toggleExperience(this)">
+                    <div class="company-info">
+                        <div class="company-name">苏宁易购</div>
+                        <div class="position-time">采销 | 2021.06-2022.10</div>
+                    </div>
+                    <div class="toggle-btn">+</div>
+                </div>
+                <div class="experience-content">
+                    <div class="content-item">1、品牌经营管理：负责澳柯玛冰系，协助负责倍科冰系的日常采购和线下销售管理工作，完成部门kpi。</div>
+                    <div class="content-item">2、供应链管理：根据商品的进销存情况，完成采购计划的编排，有效控制供货、库存和销售方面的成本和风险。</div>
+                    <div class="content-item">3、销售计划制定及跟进：与供应商洽谈活动、奖励，制定有竞争力的商品营销策略，协调、利用公司运营、市场等部门资源，进行运营、推广工作。</div>
+                    <div class="content-item">4、供应商关系：协助部门领导与供应商洽谈，维护良好的合作关系，包括产品的推广以及费用的洽谈收取，提升我司毛利。</div>
+                    <div class="content-item achievements">5、主要业绩：22年上半年倍科冰洗洗衣机同比增长29%，零售云渠道同比增长62%，GMV1716万，澳柯玛品牌，主推期间任务完成率达161%，GMV同比增长57%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 教育经历 -->
+        <div class="education">
+            <h2 class="section-title">教育经历</h2>
+            <div class="education-item">
+                <div class="school-info">
+                    <div class="school-name">山东华宇工学院</div>
+                    <div class="education-time">2017.09 - 2021.07</div>
+                </div>
+                <div class="major">建环/本科（统招全日制）</div>
+                <div class="campus-experience">
+                    在校经历：<br>
+                    1、参加省级创新创业项目，主导项目发展历时10个月顺利结题，产出一项专利、3篇论文<br>
+                    2、21届优秀毕业生
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 折叠/展开工作经历的函数
+        function toggleExperience(element) {
+            // 获取内容区域和按钮
+            const content = element.nextElementSibling;
+            const btn = element.querySelector('.toggle-btn');
+            
+            // 切换显示/隐藏状态
+            content.classList.toggle('show');
+            btn.classList.toggle('rotated');
+        }
+
+        // 默认展开第一个工作经历
+        window.onload = function() {
+            const firstExperience = document.querySelector('.experience-header');
+            toggleExperience(firstExperience);
+        }
+    </script>
+</body>
+</html>
